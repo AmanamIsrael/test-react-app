@@ -1,7 +1,9 @@
-export const Button = () => {
-  return (
-    <button className="bg-blue hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-      Button
-    </button>
-  );
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  children: React.ReactNode;
+}
+
+export const Button = (props: ButtonProps) => {
+  const { children, ...rest } = props;
+
+  return <button {...rest}>{children}</button>;
 };
