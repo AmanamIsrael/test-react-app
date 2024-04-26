@@ -31,3 +31,7 @@ body {
     text-wrap: balance;
   }
 }
+
+canvas {
+  border-radius: 50%;
+}
