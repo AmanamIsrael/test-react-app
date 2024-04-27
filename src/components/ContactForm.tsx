@@ -14,7 +14,7 @@ export const ContactForm = (props: ContactFormProps) => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isDirty },
   } = useForm({
     defaultValues: {
       name: "",
@@ -34,7 +34,7 @@ export const ContactForm = (props: ContactFormProps) => {
       <p className="font-light uppercase">Get in touch</p>
       <p className="text-6xl font-bold">Contact.</p>
 
-      <form onSubmit={handleSubmit(onSubmit)} className="grid text-start gap-4">
+      <form onSubmit={handleSubmit(onSubmit)} className="grid text-start gap-6">
         <Input
           formInputProps={register("name")}
           error={errors.name?.message as string}
@@ -60,7 +60,8 @@ export const ContactForm = (props: ContactFormProps) => {
         />
         <Button
           type="submit"
-          className="bg-blue text-white w-max px-4 py-2 rounded-md">
+          disabled={Object.keys(errors).length > 0 || !isDirty}
+          className="bg-blue disabled:opacity-50 disabled:cursor-not-allowed text-white w-max px-4 py-2 rounded-md">
           Send
         </Button>
       </form>

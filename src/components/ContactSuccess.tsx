@@ -1,7 +1,6 @@
-import animationData from "@/components/lotties/checkmark-lottie.json";
 import { ContactUsData } from "@/schema/contact-us";
-import Lottie from "react-lottie";
 import { Button } from "./core/Button";
+import { Checkmark } from "./core/Checkmark";
 
 interface ContactSuccessProps {
   data: ContactUsData | undefined;
@@ -9,18 +8,9 @@ interface ContactSuccessProps {
 }
 
 export const ContactSuccess = (props: ContactSuccessProps) => {
-  const defaultOptions = {
-    loop: false,
-    autoplay: true,
-    animationData: animationData,
-    rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice",
-    },
-  };
-
   return (
     <div className="w-full text-center min-h-[600px]">
-      <Lottie options={defaultOptions} height={400} width={400} />
+      <Checkmark />
 
       <div className="grid gap-4">
         <p className="text-2xl font-bold">
@@ -33,7 +23,7 @@ export const ContactSuccess = (props: ContactSuccessProps) => {
 
         <Button
           onClick={props.onBack}
-          className="mt-4 bg-blue px-10 py-4 rounded-xl w-max mx-auto">
+          className="mt-4 bg-blue px-6 py-3 rounded-md w-max mx-auto">
           Go back
         </Button>
       </div>
