@@ -23,7 +23,7 @@ export const ContactWrapper = (props: ContactWrapperProps) => {
   };
 
   return (
-    <div className="grid h-max p-32 w-full text-center md:text-start gap-4">
+    <div className="grid h-max lg:p-32 p-10 w-full text-center md:text-start gap-4">
       {step === ContactStep.Form ? (
         <ContactForm onSubmit={onSubmit} />
       ) : (
